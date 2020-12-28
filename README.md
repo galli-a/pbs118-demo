@@ -1,6 +1,6 @@
 # Hello World!!!
 
-This is a dummy project for use as an example in instalments 104 through 109 of the [Programming by Stealth](https://pbs.bartificer.net/) blog/podcast series.
+This is a dummy project for use as an example in instalments 104 through 110 of the [Programming by Stealth](https://pbs.bartificer.net/) blog/podcast series.
 
 This project contains a single HTML 5 web pages that says hello to the world.
 
