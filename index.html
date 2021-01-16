@@ -13,6 +13,14 @@
 <p class="lead">Welcome to some dummy content for instalments 104 through 110 of the <a href="https://pbs.bartificer.net/" target="_blank" rel="noopener">Programming by Stealth</a> blog/podcast series.</p>
 </header>
 <main class="container">
+
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+  <h1 class="h5 d-inline">Trivia:</h1> The PBS series is <span id="pbs_age_span"></span> old!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <p><em>Hello World</em> is a long-standing programming tradition, <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program" target="_blank" rel="noopener">learn more on Wikipedia</a>.</p>
 
 <h2>Bart's Programming History in <em>Hello Worlds</em></h2>
@@ -127,7 +135,7 @@ console.info('Hello World!');
 
 <h2>Powered by Open Source</h2>
 
-<p>Almost everything in this series is powered by open source technologies. Even this silly little demo uses <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/" target="_blank" rel="noopener">Bootstrap 4</a>, and by extension <a href="https://jquery.com/" target="_blank" rel="noopener">jQuery and <a href="https://popper.js.org/" target="_blank" rel="noopener">Popper.js</a>.</p>
+<p>Almost everything in this series is powered by open source technologies. Even this silly little demo uses <a href="https://momentjs.com/" target="_blank" rel="noopener">MomentJS</a>, <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/" target="_blank" rel="noopener">Bootstrap 4</a>, and by extension <a href="https://jquery.com/" target="_blank" rel="noopener">jQuery and <a href="https://popper.js.org/" target="_blank" rel="noopener">Popper.js</a>.</p>
 
 <h2>Bart's Favourite Time Travel Movie</h2>
 
@@ -141,5 +149,19 @@ console.info('Hello World!');
 <!-- Include the jQuery & Bootstrap JS Libraries -->
 <script src="contrib/jQuery3.5/jquery.min.js"></script>
 <script src="contrib/Bootstrap4.5/bootstrap.bundle.min.js"></script>
+
+<!-- Include MomentJS -->
+<script src="contrib/MomentJS2.29/moment-with-locales.min.js"></script>
+
+<!-- Document Ready Handler to add the age of the series -->
+<script type="text/javascript">
+  $(function(){
+    // the date pbs 1 was published
+    const pbs1 = moment('2015-10-23T16:26:00Z');
+    const now = moment();
+    const age = moment.duration(pbs1.diff(now));
+    $('#pbs_age_span').text(age.humanize());
+  });
+</script>
 </body>
 </html>
