@@ -141,6 +141,13 @@ console.info('Hello World!');
 
 <p>Perhaps not the most original choice, but <a href="https://en.wikipedia.org/wiki/Back_to_the_Future" target="_blank" rel="noopener">Back to the Future</a> has a special place in Bart's Heart.</p>
 
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+  <h1 class="h5 d-inline">Trivia:</h1> <a href="https://www.telegraph.co.uk/culture/film/film-news/11944725/What-is-Back-to-the-Future-Day-and-what-did-the-film-get-right-and-wrong-about-October-21-2015.html" target="_blank" rel="noopener">Back to the Future Day</a> was <span id="btfd_span"></span>!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <p class="text-center"><img src="EasterEgg.png" class="img-fluid" title="The original Back to the Future movie poster" alt="The original Back to the Future movie poster"></p>
 
 </main>
@@ -153,14 +160,20 @@ console.info('Hello World!');
 <!-- Include MomentJS -->
 <script src="contrib/MomentJS2.29/moment-with-locales.min.js"></script>
 
-<!-- Document Ready Handler to add the age of the series -->
+<!-- Document Ready Handler to add the age of the series and the time since BTFD -->
 <script type="text/javascript">
   $(function(){
+    const now = moment();
+
     // the date pbs 1 was published
     const pbs1 = moment('2015-10-23T16:26:00Z');
-    const now = moment();
     const age = moment.duration(pbs1.diff(now));
     $('#pbs_age_span').text(age.humanize());
+
+    // back to the future day
+    const btfd = moment('2015-10-21T16:29:00-08:00');
+    const btfdAge = moment.duration(btfd.diff(now));
+    $('#btfd_span').text(btfdAge.humanize(true));
   });
 </script>
 </body>
